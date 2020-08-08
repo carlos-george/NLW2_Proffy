@@ -6,7 +6,7 @@ O Proffy é a plataforma que faz uma conexão entre professores e alunos.
 
 Para clonar e executar este aplicativo, você precisará do [Git](https://git-scm.com) e do [Node.js][nodejs] instalados no seu computador.
 
-From your command line:
+Na sua linha de comando:
 
 ### Instalar API
 

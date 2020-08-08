@@ -118,7 +118,7 @@ Solicitações de Pull Requests são bem-vindas. Para grandes mudanças, abra um
 
 Certifique-se de atualizar os testes conforme apropriado.
 
-## Technologies
+## Tecnologias
 
   
 

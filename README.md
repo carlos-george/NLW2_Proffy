@@ -80,7 +80,7 @@ $ yarn start
 
   
 
-### Install Mobile
+### Instalar Mobile
 
   
 
@@ -142,7 +142,7 @@ Este projeto foi desenvolvido com as seguintes tecnologias:
 
 Poderá ser utilizado o [NPM][npm] como gerenciador de pacotes ao invés do yarn.
 
-## License
+## Licença
 [MIT](https://choosealicense.com/licenses/mit/)
 
 

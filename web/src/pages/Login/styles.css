@@ -1,0 +1,120 @@
+#page-login-form {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#page-login-form main {
+  background: var(--color-box-base);
+  width: 100%;
+  max-width: 54rem;
+  border-radius: 0.8rem;
+  padding: 1.4rem 0.8rem 0 0.8rem;
+  overflow: hidden;
+}
+
+#page-login-form main fieldset {
+  border: 0;
+  padding: 0 0.4rem;
+}
+
+#page-login-form main fieldset legend {
+  font: 700 2.8rem Archivo;
+  color: var(--color-text-title);
+  margin-bottom: 2.4rem;
+  width: 100%;
+  padding-bottom: 1.6rem;
+  border-bottom: 2px solid var(--color-line-in-white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#page-login-form main fieldset form button {
+  width: 100%;
+  height: 5.6rem;
+  background: var(--color-secundary);
+  color: var(--color-button-text);
+  border: 0;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  font: 700 1.6rem Archivo;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  transition: background-color 0.2s;
+  margin-top: 3.2rem;
+}
+
+#page-login-form main fieldset form button:hover {
+  background: var(--color-secundary-dark);
+}
+
+#page-login-form main fieldset form .input-block + .input-block {
+  margin-top: 2.4rem;
+}
+
+#page-login-form main fieldset form .login-remember-forget {
+  margin-top: 1.4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#page-login-form main fieldset form .login-remember-forget a {
+  margin-top: 1.4rem;
+  text-decoration: none;
+  color: var(--color-text-base);
+
+  transition: backgroung-color 0.2s;
+}
+
+#page-login-form main fieldset form .login-remember-forget a:hover {
+  color: var(--color-secundary-dark);
+}
+
+#page-login-form main footer {
+  padding: 4rem 1rem 0;
+  background: var(--color-box-footer);
+  border-top: 1px solid var(--color-ine-in-white);
+  margin-top: 1.4rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+#page-login-form main footer .new-user a {
+  color: var(--color-primary);
+  font-size: 1.8rem;
+}
+
+#page-login-form main footer .new-user p {
+  font-size: 1.8rem;
+  line-height: 2.4rem;
+  color: var(--color-text-complement);
+}
+
+#page-login-form main footer .login-purple-heart {
+  font-size: 1.8rem;
+  color: var(--color-text-complement);
+}
+
+@media (min-width: 700px) {
+  #page-login-form main {
+    padding: 1.4rem 0;
+  }
+
+  #page-login-form main fieldset form {
+    padding: 0 6.5rem;
+  }
+
+  #page-login-form main footer {
+    padding: 4rem 6.4rem 0;
+  }
+
+  #page-login-form main footer .login-purple-heart img {
+    padding-right: 0.8rem;
+  }
+}

@@ -33,3 +33,16 @@
   right: 1.6rem;
   bottom: 0;
 }
+
+.input-block img {
+  position: absolute;
+  top: 50px;
+  left: 10px;
+  color: var(--color-primary);
+}
+
+@media (min-width: 700px) {
+  .input-block img {
+    top: 55px;
+  }
+}

@@ -4,8 +4,8 @@ import './styles.css';
 import api from '../../services/api';
 import PageHeader from '../../components/PageHeader';
 import TeacherItem, { Teacher } from '../../components/TeacherItem';
-import Input from '../../components/Input';
-import Select from '../../components/Select/index';
+import Input from '../../components/Forms/Input';
+import Select from '../../components/Forms/Select';
 
 
 function TeacherList() {
@@ -79,10 +79,11 @@ function TeacherList() {
             </PageHeader>
             <main>
                 {teachers.map((teacher: Teacher) =>
-                    (<TeacherItem
-                        key={teacher.id}
-                        teacher={teacher}
-                    />
+                    (
+                        <TeacherItem
+                            key={teacher.id}
+                            teacher={teacher}
+                        />
                     )
                 )}
             </main>

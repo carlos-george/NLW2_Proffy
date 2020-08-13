@@ -1,0 +1,144 @@
+#forget-pass {
+  width: 100vw;
+  height: 100vh;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+.forget-pass-form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.forget-pass-form main {
+  width: 100%;
+  background: var(--color-box-base);
+  max-width: 54rem;
+  border-radius: 0.8rem;
+  padding: 2.4rem 0.8rem 2.4rem 0.8rem;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+}
+
+.forget-pass-form main fieldset {
+  border: 0;
+  padding: 0 0.4rem;
+}
+
+.forget-pass-form main fieldset legend {
+  font: 700 2.8rem Archivo;
+  line-height: 4.4rem;
+  color: var(--color-text-title);
+  margin-bottom: 2.4rem;
+  width: 100%;
+  padding-bottom: 1.6rem;
+  border-bottom: 2px solid var(--color-line-in-white);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.forget-pass-form main fieldset legend p {
+  font: 700 1.8rem Archivo;
+  margin-top: 1rem;
+  color: var(--color-text-complement);
+}
+
+.forget-pass-form main fieldset form button {
+  width: 100%;
+  height: 5.6rem;
+  background: var(--color-secundary);
+  color: var(--color-button-text);
+  border: 0;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  font: 700 1.6rem Archivo;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  transition: background-color 0.2s;
+  margin-top: 3.2rem;
+}
+
+.forget-pass-form main fieldset form button:hover {
+  background: var(--color-secundary-dark);
+}
+
+.forget-pass-form main fieldset form .input-block + .input-block {
+  margin-top: 2.4rem;
+}
+
+.forget-pass-form main fieldset form .login-remember-forget {
+  margin-top: 1.4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.forget-pass-form main fieldset form .login-remember-forget a {
+  margin-top: 1.4rem;
+  text-decoration: none;
+  color: var(--color-text-base);
+
+  transition: backgroung-color 0.2s;
+}
+
+.forget-pass-form main fieldset form .login-remember-forget a:hover {
+  color: var(--color-secundary-dark);
+}
+
+.forget-pass-form main footer {
+  padding: 4rem 1rem;
+  background: var(--color-box-footer);
+  border-top: 1px solid var(--color-ine-in-white);
+  margin-top: 1.4rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.forget-pass-form main footer .new-user a {
+  color: var(--color-primary);
+  font-size: 1.8rem;
+}
+
+.forget-pass-form main footer .new-user p {
+  font-size: 1.8rem;
+  line-height: 2.4rem;
+  color: var(--color-text-complement);
+}
+
+.forget-pass-form main footer .login-purple-heart {
+  font-size: 1.8rem;
+}
+
+@media (min-width: 700px) {
+  #forget-pass header {
+    padding: 0 6rem;
+  }
+  .forget-pass-form main {
+    padding: 1.4rem 0;
+    margin-top: 4rem;
+  }
+
+  .forget-pass-form main fieldset legend {
+    padding: 2rem 6.5rem 2rem 6.5rem;
+  }
+
+  .forget-pass-form main fieldset form {
+    padding: 0 6.5rem;
+  }
+
+  .forget-pass-form main footer {
+    padding: 4rem 6.4rem;
+  }
+
+  .forget-pass-form main footer .login-purple-heart img {
+    padding-right: 0.8rem;
+  }
+}

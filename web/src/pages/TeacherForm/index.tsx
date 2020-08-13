@@ -4,10 +4,10 @@ import { useHistory } from 'react-router-dom';
 import './styles.css';
 import api from '../../services/api';
 import warningIcon from '../../assets/images/icons/warning.svg';
-import PageHeader from '../../components/PageHeader/index';
-import Input from '../../components/Input/index';
-import TextArea from '../../components/TextArea';
-import Select from '../../components/Select';
+import PageHeader from '../../components/PageHeader';
+import Input from '../../components/Forms/Input';
+import TextArea from '../../components/Forms/TextArea';
+import Select from '../../components/Forms/Select';
 
 interface Schedule {
     week_day: number;
@@ -18,10 +18,6 @@ interface Schedule {
 function TeacherForm() {
 
     const history = useHistory();
-    const [name, setName] = useState('');
-    const [avatar, setAvatar] = useState('');
-    const [whatsapp, setWhatsapp] = useState('');
-    const [bio, setBio] = useState('');
     const [subject, setSubject] = useState('');
     const [cost, setCost] = useState('');
 
@@ -39,19 +35,33 @@ function TeacherForm() {
     function handleCreateClass(e: FormEvent) {
         e.preventDefault();
 
-        api.post('/classes', {
-            name,
-            avatar,
-            whatsapp,
-            bio,
-            subject,
-            cost,
-            schedule: schedulesItems,
-        }).then(res => {
-            alert(res.data.message);
-            history.push('/');
-        }).catch(() => {
-            alert('Erro no cadastro!!!');
+        // api.post('/classes', {
+        //     subject,
+        //     cost,
+        //     schedule: schedulesItems,
+        // }).then(res => {
+        //     alert(res.data.message);
+        //     history.push({
+        //         pathname: '/page-success',
+        //         state: {
+        //             title: 'Cadastro concluído',
+        //             subtitle: 'Agora seu perfil está completo. Você poderá cadastrar algumas aulas.',
+        //             link: 'Voltar a home',
+        //             link_path: 'landing',
+        //         }
+        //     });
+        // }).catch(() => {
+        //     alert('Erro no cadastro!!!');
+        // });
+
+        history.push({
+            pathname: '/page-success',
+            state: {
+                title: 'Cadastro concluído',
+                subtitle: 'Tudo certo, seu cadastro está na nossa lista de aulas. Agora é só ficar de olho no seu WhatsApp.',
+                link: 'Voltar a home',
+                link_path: 'landing',
+            }
         });
 
     }
@@ -70,6 +80,16 @@ function TeacherForm() {
         setScheduleItems(updatedScheduleItems);
     }
 
+    function monetaryMack(value: any) {
+
+        let v = value.replace(/\D/g, '');
+        v = (v / 100).toFixed(2) + '';
+        v = v.replace(".", ",");
+        v = v.replace(/(\d)(\d{3})(\d{3}),/g, "$1.$2.$3,");
+        v = v.replace(/(\d)(\d{3}),/g, "$1.$2,");
+        setCost(v);
+    }
+
     return (
         <div id="page-teacher-form" className="container">
             <PageHeader
@@ -79,58 +99,35 @@ function TeacherForm() {
             <main>
                 <form onSubmit={(event) => handleCreateClass(event)}>
                     <fieldset>
-                        <legend>Seus Dados</legend>
-                        <Input
-                            name="name"
-                            label="Nome completo"
-                            value={name}
-                            onChange={(e) => { setName(e.target.value) }}
-                        />
-                        <Input
-                            name="avatar"
-                            label="Avatar"
-                            value={avatar}
-                            onChange={(e) => { setAvatar(e.target.value) }}
-                        />
-                        <Input
-                            name="whatsapp"
-                            label="Whatsapp"
-                            value={whatsapp}
-                            onChange={(e) => { setWhatsapp(e.target.value) }}
-                        />
-                        <TextArea
-                            name="bio"
-                            label="Biografia"
-                            value={bio}
-                            onChange={(e) => { setBio(e.target.value) }}
-                        />
-                    </fieldset>
-                    <fieldset>
                         <legend>Sobre a aula</legend>
-                        <Select
-                            name="subject"
-                            label="Matéria"
-                            value={subject}
-                            onChange={(e) => { setSubject(e.target.value) }}
-                            options={[
-                                { value: 'Artes', label: 'Artes' },
-                                { value: 'Biologia', label: 'Biologia' },
-                                { value: 'Ciências', label: 'Ciências' },
-                                { value: 'Educação Física', label: 'Educação Física' },
-                                { value: 'Física', label: 'Física' },
-                                { value: 'Geografia', label: 'Geografia' },
-                                { value: 'História', label: 'História' },
-                                { value: 'Matemática', label: 'Matemática' },
-                                { value: 'Portugues', label: 'Portugues' },
-                                { value: 'Química', label: 'Química' },
-                            ]}
-                        />
-                        <Input
-                            name="cost"
-                            label="Custo da sua hora/aula"
-                            value={cost}
-                            onChange={(e) => { setCost(e.target.value) }}
-                        />
+                        <div className="about-class">
+                            <Select
+                                name="subject"
+                                label="Matéria"
+                                value={subject}
+                                onChange={(e) => { setSubject(e.target.value) }}
+                                options={[
+                                    { value: 'Artes', label: 'Artes' },
+                                    { value: 'Biologia', label: 'Biologia' },
+                                    { value: 'Ciências', label: 'Ciências' },
+                                    { value: 'Educação Física', label: 'Educação Física' },
+                                    { value: 'Física', label: 'Física' },
+                                    { value: 'Geografia', label: 'Geografia' },
+                                    { value: 'História', label: 'História' },
+                                    { value: 'Matemática', label: 'Matemática' },
+                                    { value: 'Portugues', label: 'Portugues' },
+                                    { value: 'Química', label: 'Química' },
+                                ]}
+                            />
+                            <Input
+                                name="cost"
+                                label="Custo da sua hora/aula"
+                                monetary
+                                maxLength={14}
+                                value={cost}
+                                onChange={(e) => { monetaryMack(e.target.value) }}
+                            />
+                        </div>
                     </fieldset>
 
                     <fieldset>
@@ -174,21 +171,18 @@ function TeacherForm() {
                                     />
                                 </div>
                             )
-
                         )}
                     </fieldset>
 
                     <footer>
                         <p>
                             <img src={warningIcon} alt="Aviso importante" />
-                            Importante! <br />import Select from '../../components/Select/index';
-import api from '../../services/api';
-
+                            Importante! <br />
                             Preencha todos os dados
-                    </p>
+                        </p>
                         <button type="submit">
                             Salvar Cadastro
-                    </button>
+                        </button>
                     </footer>
                 </form>
             </main>
@@ -196,5 +190,4 @@ import api from '../../services/api';
     );
 }
 
-export default TeacherForm
-    ;
+export default TeacherForm;
